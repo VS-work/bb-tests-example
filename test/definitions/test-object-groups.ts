@@ -6,7 +6,7 @@ const wsPath = 'https://waffle-server-stage.gapminder.org/api/ddf/ql';
 const ghWsAcc = 'buchslava';
 
 export const getTestObjectGroups = (): AbstractTestObject[] => [
-  new DdfCsvReaderTestObject().forDataSuite(sg).init({path: './test/data-fixtures/systema_globalis'}),
+  new DdfCsvReaderTestObject().forDataSuite(sg).init({path: './test/fixtures/readers-test-ds-systema-globalis/master-HEAD'}),
   new WsProdServerTestObject().forDataSuite(sg).init({path: wsPath, dataset: `${ghWsAcc}/readers-test-ds-systema-globalis`})/*,
   new DdfCsvReaderTestObject().forDataSuite(testData).init({}),
   new WsProdServerTestObject().forDataSuite(testData).init({}),*/
