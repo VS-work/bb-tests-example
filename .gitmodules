@@ -3,11 +3,6 @@
 	url = git@github.com:buchslava/readers-test-ds-systema-globalis.git
 	branch = master
 	ignore = dirty
-[submodule "readers-test-ds-systema-globalis"]
-	path = test/fixtures/readers-test-ds-systema-globalis/master-HEAD
-	url = git@github.com:buchslava/readers-test-ds-systema-globalis.git
-	branch = master
-	ignore = dirty
 [submodule "readers-test-ds-presentation-set"]
 	path = test/fixtures/readers-test-ds-presentation-set/master-HEAD
 	url = git@github.com:buchslava/readers-test-ds-presentation-set.git

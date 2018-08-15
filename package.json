@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/**/*.spec.ts",
-    "submodules:init": "git submodule update --remote --init -f",
-    "preinstall": "npm run submodules:init",
-    "clean-submodules": "git submodule deinit . -f"
+    "submodules:init": "git submodule update --remote --init -f"
   },
   "author": "",
   "license": "MIT",
@@ -15,7 +13,7 @@
     "@types/chai": "4.1.4",
     "@types/mocha": "5.2.5",
     "@types/node": "10.7.0",
-    "bb-tests-provider": "0.1.7",
+    "bb-tests-provider": "0.1.8",
     "chai": "4.1.2",
     "mocha": "5.2.0",
     "ts-node": "7.0.1",

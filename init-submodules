@@ -1,5 +1,4 @@
 git submodule add -b master -f --name path_test -- git@github.com:buchslava/readers-test-ds-systema-globalis.git ./test/fixtures/readers-test-ds-systema-globalis/master-HEAD
-git submodule add -b master -f --name path_test -- git@github.com:buchslava/readers-test-ds-systema-globalis.git ./test/fixtures/readers-test-ds-systema-globalis/master-HEAD
 git submodule add -b master -f --name path_test -- git@github.com:buchslava/readers-test-ds-presentation-set.git ./test/fixtures/readers-test-ds-presentation-set/master-HEAD
 git submodule add -b master -f --name path_test -- git@github.com:buchslava/readers-test-ds-sankey.git ./test/fixtures/readers-test-ds-sankey/master-HEAD
 git submodule add -b master -f --name path_test -- git@github.com:buchslava/readers-test-ds-systema-globalis-tiny.git ./test/fixtures/readers-test-ds-systema-globalis-tiny/master-HEAD

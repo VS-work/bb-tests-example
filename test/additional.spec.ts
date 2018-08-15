@@ -1,7 +1,7 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
 import { GeneralAssertPattern, JustAnErrorAssertPattern, sg, testData, getTestObjectGroups } from './definitions';
 
-describe('Concepts supporting', () => {
+xdescribe('Additional concepts supporting', () => {
   const aggregatedData = {};
   const testSuites = [
     new TestSuite()
@@ -40,28 +40,7 @@ describe('Concepts supporting', () => {
           ]
         }
       })
-      .withAssertPattern(JustAnErrorAssertPattern)//,
-     /*new TestSuite()
-      .forDataSuite(testData)
-      .withTitle('3 fields selects should be expected')
-      // .withFixturePath(fixturePath)
-      // .withFixture('add-#datasource#.json')
-      .withInputData({
-        select: {
-          key: ['concept'],
-          value: [
-            'concept_type', 'name'
-          ]
-        },
-        from: 'concepts',
-        where: {
-          $and: [
-            {concept_type: {$eq: 'entity_set'}}
-          ]
-        },
-        order_by: ['concept']
-      })
-      .withAssertPattern(GeneralAssertPattern)*/
+      .withAssertPattern(JustAnErrorAssertPattern)
   ];
 
   after(() => {
