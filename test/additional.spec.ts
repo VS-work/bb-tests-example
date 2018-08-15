@@ -1,5 +1,5 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
-import { GeneralAssertPattern, JustAnErrorAssertPattern, sg, testData, getTestObjectGroups } from './definitions';
+import { GeneralAssertPattern, JustAnErrorAssertPattern, sg, getTestObjectGroups } from './definitions';
 
 xdescribe('Additional concepts supporting', () => {
   const aggregatedData = {};
