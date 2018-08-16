@@ -1,5 +1,5 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
-import { GeneralAssertPattern, getTestObjectGroups, sg, sodertornsmodellen } from './definitions';
+import { GeneralAssertPattern, getTestObjectGroups, sg, gmPopulation, sodertornsmodellen } from './definitions';
 
 describe('Concepts supporting', () => {
   const aggregatedData = {};
@@ -69,6 +69,140 @@ describe('Concepts supporting', () => {
         from: 'concepts',
         where: {},
         language: 'en'
+      })
+      .withAssertPattern(GeneralAssertPattern),
+    new TestSuite()
+      .forDataSuite(sodertornsmodellen)
+      .withTitle('recent 2')
+      // .unsupportedFor('WS has null instead empty strings and populated json instead json string', WsReader)
+      .withRecordsCount(141)
+      .withInputData({
+        select: {
+          key: [
+            'concept'
+          ],
+          value: [
+            'concept_type',
+            'domain',
+            'color',
+            'scales',
+            'tags',
+            'name',
+            'format'
+          ]
+        },
+        from: 'concepts',
+        where: {},
+        language: 'en'
+      })
+      .withAssertPattern(GeneralAssertPattern),
+    new TestSuite()
+      .forDataSuite(gmPopulation)
+      .withTitle('recent 3')
+      .withRecordsCount(6)
+      .withInputData({
+        select: {
+          key: [
+            'concept'
+          ],
+          value: [
+            'concept_type',
+            'domain',
+            'indicator_url',
+            'color',
+            'scales',
+            'tags',
+            'name',
+            'description'
+          ]
+        },
+        from: 'concepts',
+        where: {},
+        language: 'en'
+      })
+      .withAssertPattern(GeneralAssertPattern),
+    new TestSuite()
+      .forDataSuite(sg)
+      .withTitle('recent 4')
+      // .unsupportedFor('WS has null instead empty strings and populated json instead json string', WsReader)
+      .withRecordsCount(595)
+      .withInputData({
+        select: {
+          key: [
+            'concept'
+          ],
+          value: [
+            'concept_type',
+            'domain',
+            'indicator_url',
+            'color',
+            'scales',
+            'tags',
+            'name',
+            'name_short',
+            'name_catalog',
+            'description'
+          ]
+        },
+        from: 'concepts',
+        where: {},
+        language: 'en'
+      })
+      .withAssertPattern(GeneralAssertPattern),
+    new TestSuite()
+      .forDataSuite(sg)
+      .withTitle('recent 5')
+      .withRecordsCount(8)
+      .withInputData({
+        select: {
+          key: [
+            'concept'
+          ],
+          value: [
+            'concept_type',
+            'name',
+            'domain'
+          ]
+        },
+        from: 'concepts',
+        where: {
+          $and: [
+            {
+              concept_type: {
+                $eq: 'entity_set'
+              }
+            }
+          ]
+        }
+      })
+      .withAssertPattern(GeneralAssertPattern),
+    new TestSuite()
+      .forDataSuite(sg)
+      .withTitle('recent 6')
+      .withRecordsCount(8)
+      .withInputData({
+        select: {
+          key: [
+            'concept'
+          ],
+          value: [
+            'concept_type',
+            'name'
+          ]
+        },
+        from: 'concepts',
+        where: {
+          $and: [
+            {
+              concept_type: {
+                $eq: 'entity_set'
+              }
+            }
+          ]
+        },
+        order_by: [
+          'concept'
+        ]
       })
       .withAssertPattern(GeneralAssertPattern)
   ];
