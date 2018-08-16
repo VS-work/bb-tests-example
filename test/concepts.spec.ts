@@ -1,5 +1,6 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
 import { GeneralAssertPattern, getTestObjectGroups, sg, gmPopulation, sodertornsmodellen } from './definitions';
+import { WsProdServerTestObject } from "./test-objects";
 
 describe('Concepts supporting', () => {
   const aggregatedData = {};
@@ -74,7 +75,7 @@ describe('Concepts supporting', () => {
     new TestSuite()
       .forDataSuite(sodertornsmodellen)
       .withTitle('recent 2')
-      // .unsupportedFor('WS has null instead empty strings and populated json instead json string', WsReader)
+      .postponeFor('WS has null instead empty strings and populated json instead json string', WsProdServerTestObject)
       .withRecordsCount(141)
       .withInputData({
         select: {
@@ -124,7 +125,7 @@ describe('Concepts supporting', () => {
     new TestSuite()
       .forDataSuite(sg)
       .withTitle('recent 4')
-      // .unsupportedFor('WS has null instead empty strings and populated json instead json string', WsReader)
+      .postponeFor('WS has null instead empty strings and populated json instead json string', WsProdServerTestObject)
       .withRecordsCount(595)
       .withInputData({
         select: {

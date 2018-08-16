@@ -12,6 +12,7 @@ import {
   staticAssets,
   sgMixEntity
 } from './definitions';
+import { WsProdServerTestObject } from "./test-objects";
 
 describe('Datapoints supporting', () => {
   const aggregatedData = {};
@@ -74,7 +75,7 @@ describe('Datapoints supporting', () => {
           }
         }
       })
-      // .unsupportedFor('it should be serious refactoring for query processing: filter results after merging', WsReader)
+      .postponeFor('it should be serious refactoring for query processing: filter results after merging', WsProdServerTestObject)
       .withAssertPattern(GeneralAssertPattern),
     new TestSuite()
       .forDataSuite(sg)
