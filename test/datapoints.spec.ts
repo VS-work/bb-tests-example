@@ -12,11 +12,12 @@ import {
   staticAssets,
   sgMixEntity
 } from './definitions';
-import { WsProdServerTestObject } from "./test-objects";
+import { WsProdServerTestObject } from './test-objects';
+import { TestSuitesComplete } from './test-suites-complete';
 
-describe('Datapoints supporting', () => {
-  const aggregatedData = {};
-  const testSuites = [
+export const datapointsTestSuitesComplete: TestSuitesComplete = {
+  title: 'Datapoints supporting',
+  testSuites: [
     new TestSuite()
       .forDataSuite(sg)
       .withTitle('plain query should be processed correctly')
@@ -1651,7 +1652,7 @@ describe('Datapoints supporting', () => {
           'time'
         ]
       })
-     .withAssertPattern(GeneralAssertPattern),
+      .withAssertPattern(GeneralAssertPattern),
     new TestSuite()
       .forDataSuite(sg)
       .withTitle('recent 30')
@@ -3726,11 +3727,15 @@ describe('Datapoints supporting', () => {
         ]
       })
       .withAssertPattern(GeneralAssertPattern)
-  ];
+    ]
+};
+
+describe(datapointsTestSuitesComplete.title, () => {
+  const aggregatedData = {};
 
   after(() => {
-    printSummaryTable(testSuites, aggregatedData);
+    printSummaryTable(datapointsTestSuitesComplete.testSuites, aggregatedData);
   });
 
-  runTests(getTestObjectGroups, testSuites, aggregatedData);
+  runTests(getTestObjectGroups, datapointsTestSuitesComplete.testSuites, aggregatedData);
 });

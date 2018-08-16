@@ -1,10 +1,11 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
 import { GeneralAssertPattern, getTestObjectGroups, sg, gmPopulation, sodertornsmodellen } from './definitions';
-import { WsProdServerTestObject } from "./test-objects";
+import { WsProdServerTestObject } from './test-objects';
+import { TestSuitesComplete } from './test-suites-complete';
 
-describe('Concepts supporting', () => {
-  const aggregatedData = {};
-  const testSuites = [
+export const conceptsTestSuitesComplete: TestSuitesComplete = {
+  title: 'Concepts supporting',
+  testSuites: [
     new TestSuite().forDataSuite(sg).withTitle('4 fields selects should be expected')
       .withRecordsCount(8)
       .withInputData({
@@ -206,11 +207,15 @@ describe('Concepts supporting', () => {
         ]
       })
       .withAssertPattern(GeneralAssertPattern)
-  ];
+  ]
+};
+
+describe(conceptsTestSuitesComplete.title, () => {
+  const aggregatedData = {};
 
   after(() => {
-    printSummaryTable(testSuites, aggregatedData);
+    printSummaryTable(conceptsTestSuitesComplete.testSuites, aggregatedData);
   });
 
-  runTests(getTestObjectGroups, testSuites, aggregatedData);
+  runTests(getTestObjectGroups, conceptsTestSuitesComplete.testSuites, aggregatedData);
 });

@@ -1,9 +1,10 @@
 import { printSummaryTable, runTests, TestSuite } from 'bb-tests-provider/dist';
 import { GeneralAssertPattern, getTestObjectGroups, sg, presentationSet, sankey, sodertornsmodellen, gmPopulationBig } from './definitions';
+import { TestSuitesComplete } from './test-suites-complete';
 
-describe('Entities supporting', () => {
-  const aggregatedData = {};
-  const testSuites = [
+export const entitiesTestSuitesComplete: TestSuitesComplete = {
+  title: 'Entities supporting',
+  testSuites: [
     new TestSuite()
       .forDataSuite(sg)
       .withTitle('plain query should be processed correctly')
@@ -366,11 +367,15 @@ describe('Entities supporting', () => {
         ]
       })
       .withAssertPattern(GeneralAssertPattern)
-  ];
+  ]
+};
+
+describe(entitiesTestSuitesComplete.title, () => {
+  const aggregatedData = {};
 
   after(() => {
-    printSummaryTable(testSuites, aggregatedData);
+    printSummaryTable(entitiesTestSuitesComplete.testSuites, aggregatedData);
   });
 
-  runTests(getTestObjectGroups, testSuites, aggregatedData);
+  runTests(getTestObjectGroups, entitiesTestSuitesComplete.testSuites, aggregatedData);
 });
