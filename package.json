@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register --timeout 200000 test/**/*.spec.ts",
+    "test": "npm run pro && mocha --require ts-node/register --timeout 200000 test/**/*.spec.ts",
     "submodules:init": "git submodule update --remote --init -f",
     "pro": "ts-node test/prompt.ts"
   },
